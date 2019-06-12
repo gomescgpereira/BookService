@@ -1,0 +1,44 @@
+<h1> Book Selection</h1>
+<div class="container">
+  <div class="table-responsive">
+   <table class="table" width="200px" align="center">
+   
+      <thead>
+          <th>#</th>
+          <th (click)="sort('titulo')">Título
+            <span *ngIf="key =='titulo'">{{ reverse ? '^' : 'v'}}</span>
+          </th>
+          <th (click)="sort('descricao')">Descrição</th>
+          <th (click)="sort('autor')">Autor
+            <span *ngIf="key =='autor'">
+              {{ reverse ? '^' : 'v'}}</span>
+              
+          </th>
+          <th (click)="sort('editora')">Editora
+              <span *ngIf="key =='editora'">
+                  {{ reverse ? '^' : 'v'}}</span>
+                  
+              
+          </th>
+          <th (click)="sort('genero')">Genero
+              <span *ngIf="key =='genero'">
+                  {{ reverse ? '^' : 'v'}}</span>
+                  
+          </th>
+      </thead>
+ 
+      <tr *ngFor="let todo of todos | orderBy: key : reverse; let i = index"  >
+          <td>{{i}}</td>
+          <td> {{todo.titulo}}</td>
+          <td>{{todo.descricao}}</td>
+          <td> {{todo.autor}}</td>
+          <td>{{todo.editora}}</td>
+          <td> {{todo.genero}}</td>
+          
+            
+          </tr>
+      </table>
+    </div>
+  
+
+</div>
